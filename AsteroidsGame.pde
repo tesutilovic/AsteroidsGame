@@ -1,6 +1,7 @@
 Spaceship bob = new Spaceship();
 Star[] galaxy = new Star[100];
 ArrayList <Asteroids> theList = new ArrayList <Asteroids> ();
+ArrayList <Bullet> bullet = new ArrayList <Bullet> ();
 
 public void setup() 
 {
@@ -15,15 +16,20 @@ public void setup()
 public void draw() 
 {
   background(0);
+  bob.show();
+    bob.move();
   for (int i = 0; i<galaxy.length; i++){
   	galaxy[i].show();
-  	bob.show();
-  	bob.move();}
+  	}
   for (int i = 0; i<theList.size(); i++){
   	theList.get(i).show();
   	theList.get(i).move();
 if (dist((float)bob.getmyCenterX(), (float)bob.getmyCenterY(), (float)theList.get(i).getmyCenterX(), (float)theList.get(i).getmyCenterY()) < 20)
 	theList.remove(i);
+  }
+  for (int i =0; i<bullet.size(); i++){
+    bullet.get(i).show();
+    bullet.get(i).move();
   }
 }
 public void keyPressed()
@@ -41,4 +47,7 @@ public void keyPressed()
 	bob.setmyCenterX((int)(Math.random()*width));
 	bob.setmyCenterY((int)(Math.random()*height));
 }
+  if (key == ' ')
+  bullet.add(new Bullet(bob));
+
 }
