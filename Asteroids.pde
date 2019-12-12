@@ -5,11 +5,11 @@ class Asteroids extends Floater{
 		corners = 4;
 		xCorners = new int[] {-20, -20, 20, 20};
 		yCorners = new int[] {20, -20, 20, -20};
-		myColor = color(255,0,0);
+		myColor = color(180);
 		myCenterX = 100;
 		myCenterY = 100;
-		myDirectionX = (int)(Math.random()*-2)+1;
-		myDirectionY = (int)(Math.random()*-2)+1;
+		myDirectionX = (float)(Math.random()*-2)+1;
+		myDirectionY = (float)(Math.random()*-2)+1;
 		myPointDirection = 0;
 	}
 	public void move(){

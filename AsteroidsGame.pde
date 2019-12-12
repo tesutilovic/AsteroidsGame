@@ -9,13 +9,13 @@ public void setup()
   size(600,600);
   for (int i = 0; i<galaxy.length;i++)
   galaxy[i] = new Star();
- for (int i = 0; i<5;i++){
+ for (int i = 0; i<10;i++){
   theList.add(new Asteroids());
 }
 }
 public void draw() 
 {
-  background(0);
+  background (0, 0, 113);
   bob.show();
     bob.move();
   for (int i = 0; i<galaxy.length; i++){
@@ -27,6 +27,13 @@ public void draw()
 if (dist((float)bob.getmyCenterX(), (float)bob.getmyCenterY(), (float)theList.get(i).getmyCenterX(), (float)theList.get(i).getmyCenterY()) < 20)
 	theList.remove(i);
   }
+  for (int i = 0; i<bullet.size(); i++){
+    for (int m = 0; m<theList.size();m++){
+      if (dist((float)bullet.get(i).getmyCenterX(), (float)bullet.get(i).getmyCenterY(), (float)theList.get(m).getmyCenterX(), (float)theList.get(m).getmyCenterY()) < 20)
+  theList.remove(m);
+    }
+  }
+  
   for (int i =0; i<bullet.size(); i++){
     bullet.get(i).show();
     bullet.get(i).move();
